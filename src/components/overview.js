@@ -65,6 +65,36 @@ const Square=({value,onClick})=>{
       else
       status='Next Player: '+(this.state.xIsNext?'X':'O');
     
+
+class Square extends React.Component {
+    constructor(props) {
+      super(props);
+      this.state = {
+        value: null,
+      };
+    }
+  
+    render() {
+      return (
+        <button
+          className="square"
+          onClick={() => this.setState({value: 'X'})}
+        >
+          {this.state.value}
+        </button>
+      );
+    }
+  }
+  
+  class Board extends React.Component {
+    renderSquare(i) {
+      return <Square />;
+    }
+  
+    render() {
+      const status = 'Next player: X';
+  
+
       return (
         <div>
           <div className="status">{status}</div>
